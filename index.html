@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Crystals Collector</title>
+
+    <!--jQuery Library -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+
+    <!--Bootstrap-->
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
+	
+	<!--Font Awesome-->
+    <script src="https://use.fontawesome.com/5d6f235428.js"></script>
+	
+	<!--google font-->
+    <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
+
+</head>
+
+<body class="bg">
+
+<!-- Jumbotron Title -->
+<div class="jumbotron">
+    <h1 class="text-center" style="color: blue">Crystals Collector</h1>
+    <br>
+    <h5 class="text-center">You will be given a random number at the start of the game.<br><br>There are 3 gems below. By clicking on a gem you will add a specific amount of points to your total score.<br><br>You win the game by matching your total score to the random number. If you exceed the random number, you lose.<br><br>The value of each gem is hidden until you click on it, & each time the game starts the value of the gems will change.</h5>
+</div>
+
+<div class="container">
+<div class="row">
+	<div class="col-lg-4">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Number to Match</h3>
+                </div>
+                <div class="panel-body">
+                	<h1 id="matchNumber">0</h1>
+                </div>
+        </div>
+	</div>
+	<div class="col-lg-4">
+        <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Current Score</h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="totalScore">0</h1>
+                </div>
+            </div>
+        </div>
+</div>
+</div>
+
+<div class="container">
+	<div class="row">
+        <div class="col-lg-6">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <h3 class="panel-title">Gems</h3>
+                </div>
+
+                <div class="panel-body">
+                    <i class="fa fa-microchip" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i>
+                    <i class="fa fa-cogs" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i>
+                    <i class="fa fa-puzzle-piece" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i> 
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="container">
+	<div class="row">
+		<div class="col-lg-3">
+			<div class="panel panel-default" style="background-color: black; color: white">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-level-up" aria-hidden="true"></i></h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="wins">0</h1>
+                </div>
+            </div>	
+		</div>
+		<div class="col-lg-3">
+			<div class="panel panel-default" style="background-color: black; color: white">
+                <div class="panel-heading">
+                    <h3 class="panel-title"><i class="fa fa-level-down" aria-hidden="true"></i></h3>
+                </div>
+                <div class="panel-body">
+                    <h1 id="losses">0</h1>
+                </div>
+            </div>	
+		</div>
+	</div>
+</div>
+
+<style type="text/css">
+	
+	.bg {
+		background-color: #e6ffff;
+	}
+
+	h1 {
+		font-family: 'Fira Sans', sans-serif;
+		color: blue;
+	}
+
+	h3 {
+		font-family: 'Fira Sans', sans-serif;
+	}
+
+	h5 {
+		font-family: 'Fira Sans', sans-serif;
+		color: blue;
+	}
+
+	.fa {
+		color: blue;
+	}
+	
+</style>
+
+
+<script type="text/javascript">
+
+$(document).ready(function(){
+
+	var wins = 0;
+	var losses = 0;
+	var random = 0;
+	var score = 0;
+	var gems = [];
+	var gemVal = 0;
+	var run = 0;
+
+	//Random number to match
+	var randomOne = function () {
+		return Math.floor((Math.random() * 100) + 1);
+		console.log(randomOne);
+	}
+
+	// 4 random numbers for gem array
+	function jem () {
+	for (var i = 0; i < 4; i++) {
+		var gemRandom = Math.floor(Math.random() * (10) +1);
+		gems.push(gemRandom);
+		}
+	}
+
+	//Initial set of random number and gem values
+	if (run <= 0) {
+	reset();
+	}
+
+	// assigns values to buttons 
+	$(".fa-microchip").data("value", gems[0]);
+	$(".fa-cogs").data("value", gems[1]);
+	$(".fa-puzzle-piece").data("value", gems[2]);
+
+	//Refreshes the values
+	function refresh() {
+		$("#totalScore").text(score);
+		$("#wins").text(wins);
+		$("#losses").text(losses);
+		}
+
+	//Resets everything
+	function reset() {
+		randomOne;
+		jem();
+		score = 0;
+		refresh();
+	}
+
+	//click adds value to score / check winnning or losing conditions
+	$(".fa").on("click", function() {
+		gemClickValue = $(this).data("value");
+		score = gemClickValue + score;
+		$("#totalScore").text(score);
+		if (score === randomOne) {
+			wins++;
+			reset();
+			refresh();
+		}
+		if (score > randomOne) {
+			losses++;
+			reset();
+			refresh();
+		}
+	});
+
+	var match = $("#matchNumber").text(randomOne);
+
+});
+
+</script>
+</body>
+</html>
