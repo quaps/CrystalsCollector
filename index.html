@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -9,10 +10,10 @@
 
     <!--Bootstrap-->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css" integrity="sha384-1q8mTJOASx8j1Au+a5WDVnPi2lkFfwwEAa8hDDdjZlpLegxhjVME1fgjWPGmkzs7" crossorigin="anonymous">
-	
+
 	<!--Font Awesome-->
     <script src="https://use.fontawesome.com/5d6f235428.js"></script>
-	
+
 	<!--google font-->
     <link href="https://fonts.googleapis.com/css?family=Fira+Sans" rel="stylesheet">
 
@@ -21,18 +22,18 @@
 <body class="bg">
 
 <!-- Jumbotron Title -->
-<div class="jumbotron">
-    <h1 class="text-center" style="color: blue">Crystals Collector</h1>
+<div class="jumbotron jum">
+    <h1 class="text-center">CRYSTALS COLLECTOR</h1>
     <br>
-    <h5 class="text-center">You will be given a random number at the start of the game.<br><br>There are 3 gems below. By clicking on a gem you will add a specific amount of points to your total score.<br><br>You win the game by matching your total score to the random number. If you exceed the random number, you lose.<br><br>The value of each gem is hidden until you click on it, & each time the game starts the value of the gems will change.</h5>
+    <h5 class="text-center jum">You will be given a random number at the start of the game.<br><br>There are 3 gems below. By clicking on a gem you will add a specific amount of points to your total score.<br><br>You win the game by matching your total score to the random number. If you exceed the random number, you lose.<br><br>The value of each gem is hidden until you click on it, & each time the game starts the value of the gems will change.</h5>
 </div>
 
 <div class="container">
 <div class="row">
 	<div class="col-lg-4">
-        <div class="panel panel-default">
+        <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Number to Match</h3>
+                    <h3 class="panel-title">Magic Number</h3>
                 </div>
                 <div class="panel-body">
                 	<h1 id="matchNumber">0</h1>
@@ -40,7 +41,7 @@
         </div>
 	</div>
 	<div class="col-lg-4">
-        <div class="panel panel-default">
+        <div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title">Current Score</h3>
                 </div>
@@ -55,77 +56,282 @@
 <div class="container">
 	<div class="row">
         <div class="col-lg-6">
-            <div class="panel panel-default">
+            <div class="panel">
                 <div class="panel-heading">
-                    <h3 class="panel-title">Gems</h3>
+                    <h3 class="panel-title"></h3>
                 </div>
 
                 <div class="panel-body">
-                    <i class="fa fa-microchip" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i>
-                    <i class="fa fa-cogs" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i>
-                    <i class="fa fa-puzzle-piece" aria-hidden="true" style="font-size: 62px; margin-right: 25px"></i> 
+                    <div class="fa" id="cut-diamond"></div>
+					<div class="fa" id="cut-diamondTwo"></div>
+					<div class="fa" id="cut-diamondThree"></div>
                 </div>
             </div>
         </div>
     </div>
 </div>
-
+<br><br><br><br><br>
 <div class="container">
 	<div class="row">
 		<div class="col-lg-3">
-			<div class="panel panel-default" style="background-color: black; color: white">
+			<div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-level-up" aria-hidden="true"></i></h3>
                 </div>
                 <div class="panel-body">
-                    <h1 id="wins">0</h1>
+                    <h3 id="wins">0</h3>
                 </div>
-            </div>	
+            </div>
 		</div>
 		<div class="col-lg-3">
-			<div class="panel panel-default" style="background-color: black; color: white">
+			<div class="panel">
                 <div class="panel-heading">
                     <h3 class="panel-title"><i class="fa fa-level-down" aria-hidden="true"></i></h3>
                 </div>
                 <div class="panel-body">
-                    <h1 id="losses">0</h1>
+                    <h3 id="losses">0</h3>
                 </div>
-            </div>	
+            </div>
 		</div>
 	</div>
 </div>
 
 <style type="text/css">
-	
-	.bg {
-		background-color: #e6ffff;
-	}
 
+	.bg {
+		background-color: black;
+	}
 	h1 {
 		font-family: 'Fira Sans', sans-serif;
-		color: blue;
+		color: #e6ffff;
+		background-color: black;
 	}
-
 	h3 {
 		font-family: 'Fira Sans', sans-serif;
+		color: #e6ffff;
+		background-color: black;
 	}
 
 	h5 {
 		font-family: 'Fira Sans', sans-serif;
-		color: blue;
+		color: #e6ffff;
+		background-color: black;
 	}
 
 	.fa {
 		color: blue;
 	}
-	
+
+	.jum {
+		color: #e6ffff; 
+		background-color: black;
+	}
+
+	.panel-heading {
+		background-color: black;
+		color: #e6ffff;
+		font-family: 'Fira Sans', sans-serif;
+		padding: 1px;
+		border-color: black;
+		border: 0;
+		box-shadow: 0;
+	}
+
+	.panel-title {
+		background-color: black;
+		color: #e6ffff;
+		font-family: 'Fira Sans', sans-serif;
+		font-size: 24px;
+		padding: 1px;
+		border: 0;
+		box-shadow: 0;
+	}
+
+	.panel-body {
+		background-color: black;
+		font-family: 'Fira Sans', sans-serif;
+		box-shadow: 0;
+	}
+
+	.panel-default {
+		background-color: black;
+		border: 0;
+		box-shadow: 0;
+	}
+
+	.panel {
+		background-color: black;
+		border: 0;	
+		box-shadow: 0;
+	}
+
+	#totalScore {
+		color: #FBDDFF;
+	}
+
+	#matchNumber {
+		color: #FBDDFF;
+	}
+
+	#cut-diamond {
+    border-style: solid;
+    border-color: transparent transparent blue transparent;
+    border-width: 0px 225px 25px 25px;
+    height: 0;
+    width: 50px;
+    position: relative;
+    float: left;
+    margin: 20px 0 50px 0;
+    -webkit-animation-name: diamond; 
+    -webkit-animation-duration: 7s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamond;
+    animation-duration: 7s;
+    animation-iteration-count: infinite;
+	}
+	#cut-diamond:after {
+    content: "";
+    position: absolute;
+    float: left;
+    top: 25px;
+    left: -25px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: green transparent transparent transparent;
+    border-width: 200px 200px 0 50px;
+    -webkit-animation-name: diamondAfter; 
+    -webkit-animation-duration: 13s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamondAfter;
+    animation-duration: 13s;
+    animation-iteration-count: infinite;
+	}
+	@keyframes diamond {
+	    0%   {border-color: transparent transparent #DBFCFE transparent}
+	    17%  {border-color: transparent transparent #DBDDFE transparent}
+	    53%  {border-color: transparent transparent #F6FFFF transparent}
+	    89%  {border-color: transparent transparent #DEE8E8 transparent}
+	    100% {border-color: transparent transparent #DBFCFE transparent}
+	} 
+	@keyframes diamondAfter {
+	    0%   {border-color: #DBFCFE transparent transparent transparent}
+	    23%  {border-color: white transparent transparent transparent}
+	    24%  {border-color: #F6FFFF transparent transparent transparent}
+	    37%  {border-color: #F6FFFF transparent transparent transparent}
+	    63%  {border-color: #DBDDFE transparent transparent transparent}
+	    77%  {border-color: #DEE8E8 transparent transparent transparent}
+	    100% {border-color: #DBFCFE transparent transparent transparent}
+	} 
+
+	#cut-diamondTwo {
+    border-style: solid;
+    border-color: transparent transparent blue transparent;
+    border-width: 0px 95px 25px 25px;
+    height: 0;
+    width: 50px;
+    position: relative;
+    float: left;
+    margin: 2px 0 50px 100px;
+    -webkit-animation-name: diamondTwo; 
+    -webkit-animation-duration: 11s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamondTwo;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+	}
+	#cut-diamondTwo:after {
+    content: "";
+    position: absolute;
+    float: left;
+    top: 25px;
+    left: -25px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: green transparent transparent transparent;
+    border-width: 300px 95px 0 29px;
+    -webkit-animation-name: diamondAfterTwo; 
+    -webkit-animation-duration: 17s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamondAfterTwo;
+    animation-duration: 17s;
+    animation-iteration-count: infinite;
+	}
+	@keyframes diamondTwo {
+	    0%   {border-color: transparent transparent #1F0C3D transparent}
+	    23%  {border-color: transparent transparent #32293D transparent}
+	    24%  {border-color: transparent transparent white transparent}
+	    25%  {border-color: transparent transparent #1C00DC transparent}
+	    47%  {border-color: transparent transparent #17054F transparent}
+	    73%  {border-color: transparent transparent #45084C transparent}
+	    100% {border-color: transparent transparent #1F0C3D transparent}
+	} 
+	@keyframes diamondAfterTwo {
+	    0%   {border-color: #1F0C3D transparent transparent transparent}
+	    39%  {border-color: #32293D transparent transparent transparent}
+	    61%  {border-color: #17054F transparent transparent transparent}
+	    77%  {border-color: #45084C transparent transparent transparent}
+	    100% {border-color: #1F0C3D transparent transparent transparent}
+	} 
+
+	#cut-diamondThree {
+    border-style: solid;
+    border-color: transparent transparent blue transparent;
+    border-width: 0px 7px 25px 33px;
+    height: 0;
+    width: 50px;
+    position: relative;
+    float: left;
+    margin: 20px 50px 90px 600px;
+    -webkit-animation-name: diamondThree; 
+    -webkit-animation-duration: 11s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamondThree;
+    animation-duration: 11s;
+    animation-iteration-count: infinite;
+	}
+	#cut-diamondThree:after {
+    content: "";
+    position: absolute;
+    float: left;
+    top: 25px;
+    left: -35px;
+    width: 0;
+    height: 0;
+    border-style: solid;
+    border-color: green transparent transparent transparent;
+    border-width: 80px 40px 10px 53px;
+    -webkit-animation-name: diamondAfterThree; 
+    -webkit-animation-duration: 19s; 
+    -webkit-animation-iteration-count: infinite; 
+    animation-name: diamondAfterThree;
+    animation-duration: 19s;
+    animation-iteration-count: infinite;
+	}
+	@keyframes diamondThree {
+	    0%   {border-color: transparent transparent #CF00B7 transparent}
+	    13%  {border-color: transparent transparent #FF08AF transparent}
+	    49%  {border-color: transparent transparent #F22BFF transparent}
+	    63%  {border-color: transparent transparent #FF2B75 transparent}
+	    100% {border-color: transparent transparent #CF00B7 transparent}
+	} 
+	@keyframes diamondAfterThree {
+	    0%   {border-color: #CF00B7 transparent transparent transparent}
+	    28%   {border-color: #FF2B75 transparent transparent transparent}
+	    29%  {border-color: white transparent transparent transparent}
+	    30%  {border-color: #F22BFF transparent transparent transparent}
+	    41%  {border-color: #FF08AF transparent transparent transparent}
+	    69%  {border-color: #F22BFF transparent transparent transparent}
+	    73%  {border-color: #FF2B75 transparent transparent transparent}
+	    100% {border-color: #CF00B7 transparent transparent transparent}
+	} 
+
 </style>
 
 
 <script type="text/javascript">
-
 $(document).ready(function(){
-
 	var wins = 0;
 	var losses = 0;
 	var random = 0;
@@ -137,63 +343,52 @@ $(document).ready(function(){
 	//Random number to match
 	var randomOne = function () {
 		return Math.floor((Math.random() * 100) + 1);
-		console.log(randomOne);
 	}
-
 	// 4 random numbers for gem array
 	function jem () {
-	for (var i = 0; i < 4; i++) {
-		var gemRandom = Math.floor(Math.random() * (10) +1);
-		gems.push(gemRandom);
+  	for (var i = 0; i < 4; i++) {
+  		var gemRandom = Math.floor(Math.random() * (10) +1);
+  		gems.push(gemRandom);
 		}
 	}
-
-	//Initial set of random number and gem values
-	if (run <= 0) {
-	reset();
-	}
-
-	// assigns values to buttons 
-	$(".fa-microchip").data("value", gems[0]);
-	$(".fa-cogs").data("value", gems[1]);
-	$(".fa-puzzle-piece").data("value", gems[2]);
-
 	//Refreshes the values
 	function refresh() {
 		$("#totalScore").text(score);
 		$("#wins").text(wins);
 		$("#losses").text(losses);
-		}
+    	$("#matchNumber").text(random);
+	}
 
 	//Resets everything
 	function reset() {
-		randomOne;
-		jem();
-		score = 0;
-		refresh();
+	    gems = [];
+			random = randomOne();
+			jem();
+			score = 0;
+	    // assigns values to buttons
+	  	$("#cut-diamond").data("value", gems[0]);
+	  	$("#cut-diamondTwo").data("value", gems[1]);
+	  	$("#cut-diamondThree").data("value", gems[2]);
+			refresh();
 	}
-
+	
 	//click adds value to score / check winnning or losing conditions
 	$(".fa").on("click", function() {
 		gemClickValue = $(this).data("value");
 		score = gemClickValue + score;
 		$("#totalScore").text(score);
-		if (score === randomOne) {
+		if (score === random) {
 			wins++;
 			reset();
-			refresh();
 		}
-		if (score > randomOne) {
+		if (score > random) {
 			losses++;
 			reset();
-			refresh();
 		}
 	});
-
-	var match = $("#matchNumber").text(randomOne);
-
+  //Initial set of random number and gem values
+	reset();
 });
-
 </script>
 </body>
 </html>
